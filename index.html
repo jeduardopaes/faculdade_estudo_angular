@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="store" class="ng-scope"><!--define uma aplicação angular--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="index_arquivos/bootstrap-3.3.7-dist/css/bootstrap.css">
+		<script src="index_arquivos/angular.js"></script>
+		<script src="index_arquivos/app.js"></script>
+		<script src="index_arquivos/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+	</head>
+	<body ng-controller="StoreController as store" class="ng-scope">
+		<div class="list-group">
+			<!-- ngRepeat: product in store.products --><div ng-repeat="product in store.products" ng-hide="store.product.soldOut" class="list-group-item ng-scope">
+
+			<h1 class="ng-binding">diamente</h1>
+			<h2 class="ng-binding">$1000.00</h2>
+			<p class="ng-binding">pedra foda</p>
+			
+			<section ng-controller="PanelController as panel">
+				<ul class="nav nav-pills">
+						<li ng-class="{active: panel.isSelected(1)}">
+							<a href ng-click="panel.selectTab(1)">Descricao</a>
+						</li>
+						<li ng-class="{active: panel.isSelected(2)}">
+							<a href ng-click="panel.selectTab(2)">Especificação</a>
+						</li>
+						<li ng-class="{active: panel.isSelected(3)}">
+							<a href ng-click="panel.selectTab(3)">Reviews</a>
+						</li>
+				</ul>
+
+				<div class="panel" ng-show="panel.isSelected(1)">
+					<h4>Description</h4>
+					<p>{{product.description}}</p>
+				</div>
+				<div class="panel" ng-show="panel.isSelected(2)">
+					<h4>Especificação</h4>
+					<p>{{product.especification}}</p>
+				</div>
+				<div class="panel" ng-show="panel.isSelected(3)">
+					<h4>Reviews</h4>
+					<p>{{product.reviews}}</p>
+				</div>
+
+			</section>
+			<button ng-show="product.canPurchase" class="ng-hide">add to cart</button>
+			</div><!-- end ngRepeat: product in store.products --><div ng-repeat="product in store.products" ng-hide="store.product.soldOut" class="list-group-item ng-scope">
+
+			<h1 class="ng-binding">esmeralda</h1>
+			<h2 class="ng-binding">$5000000.00</h2>
+			<p class="ng-binding">pedra foda2</p>
+
+			<button ng-show="product.canPurchase">add to cart</button>
+			</div><!-- end ngRepeat: product in store.products -->
+		</div>
+
+</body></html>
